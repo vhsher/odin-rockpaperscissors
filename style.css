@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+h1 {
+  font-family: "Quicksand", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 50px;
+}
+
+li {
+  flex: 1;
+  font-family: "Quicksand", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
+}
+
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+div {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}

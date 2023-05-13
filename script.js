@@ -66,3 +66,38 @@ function playRound(playerSelection, computerSelection) {
   }
 
 }
+
+function game() {
+  let drawCount = 0
+  let winCount = 0
+  let loseCount = 0
+  let gameCount = 0
+  
+  while (gameCount < 5) {
+    gameCount += 1;
+    let game = playRound();
+    alert("ROUND RESULTS: " + game);
+    console.log("ROUND RESULTS: " + game);
+
+    if (game.includes("Win")) {
+      winCount += 1;
+    } else if (game.includes("Lose")) {
+      loseCount += 1;
+    } else if (game.includes("Draw")) {
+      drawCount += 1;
+    } else {
+      undefined;
+    }
+  }
+
+  if (winCount > loseCount) { // Win > Lose
+    alert("You win the game! Congratulations!");
+    return "You win the game! Congratulations!";
+  } else if (winCount === loseCount) { // Win == Lose
+    alert("Drawn game!");
+    return "Drawn game!";
+  } else { // Win < Lose
+    alert("You Lose. Good luck next time!");
+    return "You Lose. Good luck next time!";
+  }
+}

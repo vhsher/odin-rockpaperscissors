@@ -1,5 +1,6 @@
 function getComputerChoice() {
-  let randomNum = Math.floor(Math.random() * 3); // Generate a random number from 0 to 2
+  // Generate a random number from 0 to 2
+  let randomNum = Math.floor(Math.random() * 3); 
   let result
 
   switch (randomNum) {
@@ -18,36 +19,42 @@ function getComputerChoice() {
 
 }
 
-function capitalizeFirstLetter(string) { // Capitalize 1 letter just for beauty
+function capitalizeFirstLetter(string) { // Capitalize 1st letter for beauty
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 function playRound(playerSelection, computerSelection) {
   
   computerSelection = getComputerChoice();
-  playerSelection = capitalizeFirstLetter(prompt("Your turn (Rock / Paper / Scissors)"));
+  playerSelection = capitalizeFirstLetter( // Player turn
+    prompt("Your turn (Rock / Paper / Scissors)")
+  );
 
   // Check playerSelection equals Rock / Paper / Scissors
-  while ( (playerSelection != "Rock") && (playerSelection != "Paper") && (playerSelection != "Scissors") ) {
-    playerSelection = capitalizeFirstLetter(prompt("Please write Rock / Paper / Scissors"));
+  while ( (playerSelection != "Rock") &&
+          (playerSelection != "Paper") &&
+          (playerSelection != "Scissors") ) {
+    playerSelection = capitalizeFirstLetter(
+      prompt("Please write Rock / Paper / Scissors")
+      );
   }
 
-  // Rock Paper Scissors game with returned game result
-  if (computerSelection === "Rock") { // Computer = Rock
+  // Check who will win, Computer vs Player
+  if (computerSelection === "Rock") {
 
-    if (playerSelection === "Paper") { // Player = Paper
+    if (playerSelection === "Paper") {
       return "You Win! Paper beats Rock";
-    } else if (playerSelection === "Scissors") { // Player = Scissors
+    } else if (playerSelection === "Scissors") {
       return "You Lose! Rock beats Scissors";
     } else { // Player = Rock
       return "Draw! Two Rocks!";
     }
 
-  } else if (computerSelection === "Paper") { // Computer = Paper
+  } else if (computerSelection === "Paper") {
 
-    if (playerSelection === "Rock") { // Player = Rock
+    if (playerSelection === "Rock") {
       return "You Lose! Paper beats Rock";
-    } else if (playerSelection === "Scissors") { // Player = Scissors
+    } else if (playerSelection === "Scissors") {
       return "You Win! Scissors beats Paper";
     } else { // Player = Paper
       return "Draw! Two Papers!";
@@ -55,9 +62,9 @@ function playRound(playerSelection, computerSelection) {
 
   } else { // Computer = Scissors
 
-    if (playerSelection === "Rock") { // Player = Rock
+    if (playerSelection === "Rock") {
       return "You Win! Rock beats Scissors";
-    } else if (playerSelection === "Paper") { // Player = Paper
+    } else if (playerSelection === "Paper") {
       return "You Lose! Scissors beats Paper";
     } else { // Player = Scissors
       return "Draw! Two Scissors!";
@@ -73,6 +80,7 @@ function game() {
   let loseCount = 0
   let gameCount = 0
   
+  // Play 5 rounds
   while (gameCount < 5) {
     gameCount += 1;
     let game = playRound();
@@ -90,10 +98,11 @@ function game() {
     }
   }
 
-  if (winCount > loseCount) { // Win > Lose
+  // Game Results
+  if (winCount > loseCount) {
     alert("You win the game! Congratulations!");
     return "You win the game! Congratulations!";
-  } else if (winCount === loseCount) { // Win == Lose
+  } else if (winCount === loseCount) {
     alert("Drawn game!");
     return "Drawn game!";
   } else { // Win < Lose

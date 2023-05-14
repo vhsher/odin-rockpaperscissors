@@ -30,7 +30,7 @@ function playRound(playerSelection, computerSelection) {
     prompt("Your turn (Rock / Paper / Scissors)")
   );
 
-  // Check playerSelection equals Rock / Paper / Scissors
+  // Check playerSelection == Rock / Paper / Scissors
   while ( (playerSelection != "Rock") &&
           (playerSelection != "Paper") &&
           (playerSelection != "Scissors") ) {
@@ -39,7 +39,7 @@ function playRound(playerSelection, computerSelection) {
       );
   }
 
-  // Check who will win, Computer vs Player
+  // Check who will win: Computer vs Player
   if (computerSelection === "Rock") {
 
     if (playerSelection === "Paper") {

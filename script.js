@@ -82,7 +82,6 @@ function game() {
   
   // Play 5 rounds
   while (gameCount < 5) {
-    gameCount += 1;
     let game = playRound();
     alert("ROUND RESULTS: " + game);
     console.log("ROUND RESULTS: " + game);
@@ -96,6 +95,8 @@ function game() {
     } else {
       undefined;
     }
+
+    gameCount++;
   }
 
   // Game Results

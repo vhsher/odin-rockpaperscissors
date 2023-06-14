@@ -7,5 +7,5 @@ In this project I practice:
 - DOM
 - CSS
 - HTML
-
-[Color Palette:](https://colorhunt.co/palette/f5efe7d8c4b64f709c213555)
+---
+[Color Palette](https://colorhunt.co/palette/f5efe7d8c4b64f709c213555)

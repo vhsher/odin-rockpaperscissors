@@ -10,10 +10,6 @@ scissors.addEventListener('click', playRound);
 let playerScore = 0
 let computerScore = 0
 
-if (playerScore === 5 || computerScore === 5) {
-  // Someone Wins!
-}
-
 function getComputerChoice() {
   // Generate a random number from 0 to 2
   let randomNum = Math.floor(Math.random() * 3); 

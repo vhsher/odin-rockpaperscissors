@@ -62,6 +62,7 @@ button:active {
   justify-content: center;
   align-items: center;
   gap: 20px;
+  text-shadow: 2px 2px #cfc9c2;
 }
 
 .players {
@@ -97,6 +98,7 @@ button:active {
   flex-flow: column;
   align-items: center;
   gap: 20px;
+  text-shadow: 2px 2px #cfc9c2;
 }
 
 #winner {

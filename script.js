@@ -3,8 +3,13 @@
 // css transform display none
 // Try again! Start again
 // humanhp pchp reset (5)
+// Start in HTML, outside js
+// End in JS, outside DOM
 
 // const HTML = document.querySelector("");
+const startHTML = document.querySelector(".start");
+const containerHTML = document.querySelector(".container");
+const startGameHTML = document.querySelector(".start-game");
 const rockHTML = document.querySelector("#rock");
 const paperHTML = document.querySelector("#paper");
 const scissorsHTML = document.querySelector("#scissors");
@@ -17,9 +22,15 @@ const computerChoiceHTML = document.querySelector("#computer-choice");
 rockHTML.addEventListener('click', playRound);
 paperHTML.addEventListener('click', playRound);
 scissorsHTML.addEventListener('click', playRound);
+startGameHTML.addEventListener("click", startGame);
 
 let humanHealth = 5
 let computerHealth = 5
+
+function startGame() {
+  startHTML.classList.add("hidden");
+  containerHTML.classList.remove("hidden");
+}
 
 function getComputerChoice() {
   // Generate a random number from 0 to 2
@@ -43,79 +54,82 @@ function getComputerChoice() {
 }
 
 function playRound(e) {
-  let playerSelection = e.target.id;
-  let computerSelection = getComputerChoice();
 
-  switch (playerSelection) {
+  if (computerHealth !== 0 || humanHealth !== 0) {
+    let playerSelection = e.target.id;
+    let computerSelection = getComputerChoice();
 
-    case "rock":
-      if (computerSelection === "paper") {
-        playerChoiceHTML.textContent = "🪨";
-        computerChoiceHTML.textContent = "📄";
-        roundResultsHTML.textContent = "Computer wins.";
-        roundResultsHTML.style.color = "#9c4f58";
-        humanHealth--;
-        humanHealthHTML.textContent = `${humanHealth}❤️`;
-      } else if (computerSelection === "scissors") {
-        playerChoiceHTML.textContent = "🪨";
-        computerChoiceHTML.textContent = "✂️";
-        roundResultsHTML.textContent = "You win!";
-        roundResultsHTML.style.color = "#589c4f";
-        computerHealth--;
-        computerHealthHTML.textContent = `${computerHealth}❤️`;
-      } else { // computerSelection === "rock"
-        playerChoiceHTML.textContent = "🪨";
-        computerChoiceHTML.textContent = "🪨";
-        roundResultsHTML.textContent = "Draw";
-        roundResultsHTML.style.color = "#4F709C";
-      }
-      break;
+    switch (playerSelection) {
+
+      case "rock":
+        if (computerSelection === "paper") {
+          playerChoiceHTML.textContent = "🪨";
+          computerChoiceHTML.textContent = "📄";
+          roundResultsHTML.textContent = "Computer wins.";
+          roundResultsHTML.style.color = "#9c4f58";
+          humanHealth--;
+          humanHealthHTML.textContent = `${humanHealth}❤️`;
+        } else if (computerSelection === "scissors") {
+          playerChoiceHTML.textContent = "🪨";
+          computerChoiceHTML.textContent = "✂️";
+          roundResultsHTML.textContent = "You win!";
+          roundResultsHTML.style.color = "#589c4f";
+          computerHealth--;
+          computerHealthHTML.textContent = `${computerHealth}❤️`;
+        } else { // computerSelection === "rock"
+          playerChoiceHTML.textContent = "🪨";
+          computerChoiceHTML.textContent = "🪨";
+          roundResultsHTML.textContent = "Draw";
+          roundResultsHTML.style.color = "#4F709C";
+        }
+        break;
+      
+      case "paper":
+        if (computerSelection === "rock") {
+          playerChoiceHTML.textContent = "📄";
+          computerChoiceHTML.textContent = "🪨";
+          roundResultsHTML.textContent = "You win!";
+          roundResultsHTML.style.color = "#589c4f";
+          computerHealth--;
+          computerHealthHTML.textContent = `${computerHealth}❤️`;
+        } else if (computerSelection === "scissors") {
+          playerChoiceHTML.textContent = "📄";
+          computerChoiceHTML.textContent = "✂️";
+          roundResultsHTML.textContent = "Computer wins.";
+          roundResultsHTML.style.color = "#9c4f58";
+          humanHealth--;
+          humanHealthHTML.textContent = `${humanHealth}❤️`;
+        } else { // computerSelection === "paper"
+          playerChoiceHTML.textContent = "📄";
+          computerChoiceHTML.textContent = "📄";
+          roundResultsHTML.textContent = "Draw";
+          roundResultsHTML.style.color = "#4F709C";
+        }
+        break;
     
-    case "paper":
-      if (computerSelection === "rock") {
-        playerChoiceHTML.textContent = "📄";
-        computerChoiceHTML.textContent = "🪨";
-        roundResultsHTML.textContent = "You win!";
-        roundResultsHTML.style.color = "#589c4f";
-        computerHealth--;
-        computerHealthHTML.textContent = `${computerHealth}❤️`;
-      } else if (computerSelection === "scissors") {
-        playerChoiceHTML.textContent = "📄";
-        computerChoiceHTML.textContent = "✂️";
-        roundResultsHTML.textContent = "Computer wins.";
-        roundResultsHTML.style.color = "#9c4f58";
-        humanHealth--;
-        humanHealthHTML.textContent = `${humanHealth}❤️`;
-      } else { // computerSelection === "paper"
-        playerChoiceHTML.textContent = "📄";
-        computerChoiceHTML.textContent = "📄";
-        roundResultsHTML.textContent = "Draw";
-        roundResultsHTML.style.color = "#4F709C";
-      }
-      break;
-  
-    case "scissors":
-      if (computerSelection === "rock") {
-        playerChoiceHTML.textContent = "✂️";
-        computerChoiceHTML.textContent = "🪨";
-        roundResultsHTML.textContent = "Computer wins.";
-        roundResultsHTML.style.color = "#9c4f58";
-        humanHealth--;
-        humanHealthHTML.textContent = `${humanHealth}❤️`;
-      } else if (computerSelection === "paper") {
-        playerChoiceHTML.textContent = "✂️";
-        computerChoiceHTML.textContent = "📄";
-        roundResultsHTML.textContent = "You win!";
-        roundResultsHTML.style.color = "#589c4f";
-        computerHealth--;
-        computerHealthHTML.textContent = `${computerHealth}❤️`;
-      } else { // computerSelection === "scissors"
-        playerChoiceHTML.textContent = "✂️";
-        computerChoiceHTML.textContent = "✂️";
-        roundResultsHTML.textContent = "Draw";
-        roundResultsHTML.style.color = "#4F709C";
-      }
-      break;
+      case "scissors":
+        if (computerSelection === "rock") {
+          playerChoiceHTML.textContent = "✂️";
+          computerChoiceHTML.textContent = "🪨";
+          roundResultsHTML.textContent = "Computer wins.";
+          roundResultsHTML.style.color = "#9c4f58";
+          humanHealth--;
+          humanHealthHTML.textContent = `${humanHealth}❤️`;
+        } else if (computerSelection === "paper") {
+          playerChoiceHTML.textContent = "✂️";
+          computerChoiceHTML.textContent = "📄";
+          roundResultsHTML.textContent = "You win!";
+          roundResultsHTML.style.color = "#589c4f";
+          computerHealth--;
+          computerHealthHTML.textContent = `${computerHealth}❤️`;
+        } else { // computerSelection === "scissors"
+          playerChoiceHTML.textContent = "✂️";
+          computerChoiceHTML.textContent = "✂️";
+          roundResultsHTML.textContent = "Draw";
+          roundResultsHTML.style.color = "#4F709C";
+        }
+        break;
 
+    }
   }
 }

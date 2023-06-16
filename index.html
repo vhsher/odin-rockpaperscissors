@@ -11,13 +11,29 @@
 <body>
   <header>Header</header>
   <div class="container">
-    <div class="buttons">
-      <button id="rock">&#129704;</button>
-      <button id="paper">&#128196;</button>
-      <button id="scissors">&#9986;</button>
+
+    <div class="players">
+      <div class="human">🙋🏻
+        <div class="human-health">5❤️</div>
+      </div>
+      <div id="choices">
+        <div id="player-choice">❔</div>
+        <div class="versus">vs</div>
+        <div id="computer-choice">❔</div>
+      </div>
+      <div class="computer">💻
+        <div class="computer-health">5❤️</div>
+      </div>
     </div>
-    <div id="round-results">Waiting for round...</div>
-    <div class="score">Score:</div>
+
+    <div class="buttons">
+      <button id="rock">🪨</button>
+      <button id="paper">📄</button>
+      <button id="scissors">✂️</button>
+    </div>
+
+    <div id="round-results"></div>
+
   </div>
   <footer>Footer</footer>
 </body>

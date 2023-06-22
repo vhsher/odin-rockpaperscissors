@@ -114,6 +114,7 @@ footer {
 }
 
 footer > div {
+  font-family: "Quicksand", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0 20px;
   font-size: 16px;
 }

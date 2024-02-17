@@ -1,11 +1,3 @@
-// TODO
-// Welcome! Start playing
-// css transform display none
-// Try again! Start again
-// humanhp pchp reset (5)
-// Start in HTML, outside js
-// End in JS, outside DOM
-
 // const HTML = document.querySelector("");
 const startHTML = document.querySelector(".start");
 const containerHTML = document.querySelector(".container");
